@@ -1,6 +1,6 @@
 import '../backend/api_requests/api_calls.dart';
 import '../change_password/change_password_widget.dart';
-import '../create_account/create_account_widget.dart';
+import '../components/modal1_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -96,9 +96,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Text(
-                          'Use the form below, to access your account.',
-                          style: FlutterFlowTheme.of(context).bodyText2,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
+                          child: Text(
+                            'Access your account below.',
+                            style: FlutterFlowTheme.of(context).bodyText2,
+                          ),
                         ),
                       ],
                     ),
@@ -252,12 +255,18 @@ class _LoginWidgetState extends State<LoginWidget> {
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CreateAccountWidget(),
-                              ),
-                            );
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return Padding(
+                                  padding: MediaQuery.of(context).viewInsets,
+                                  child: Modal1Widget(),
+                                );
+                              },
+                            ).then((value) => setState(() {}));
                           },
                           text: 'Register account',
                           options: FFButtonOptions(
