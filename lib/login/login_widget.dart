@@ -268,7 +268,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .subtitle2
                                 .override(
-                                  fontFamily: 'DM Sans',
+                                  fontFamily: 'Roboto Mono',
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   fontSize: 14,
@@ -333,7 +333,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             color: FlutterFlowTheme.of(context).primaryColor,
                             textStyle:
                                 FlutterFlowTheme.of(context).subtitle1.override(
-                                      fontFamily: 'Lexend',
+                                      fontFamily: 'Outfit',
                                       color: Colors.white,
                                     ),
                             elevation: 3,

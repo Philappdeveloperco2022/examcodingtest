@@ -219,7 +219,7 @@ class _StoryDetailsWidgetState extends State<StoryDetailsWidget> {
                                                                           .bodyText1
                                                                           .override(
                                                                             fontFamily:
-                                                                                'DM Sans',
+                                                                                'Roboto Mono',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).tertiaryColor,
                                                                           ),
@@ -240,7 +240,7 @@ class _StoryDetailsWidgetState extends State<StoryDetailsWidget> {
                                                                           .bodyText1
                                                                           .override(
                                                                             fontFamily:
-                                                                                'DM Sans',
+                                                                                'Roboto Mono',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).tertiaryColor,
                                                                             fontSize:
@@ -399,7 +399,7 @@ class _StoryDetailsWidgetState extends State<StoryDetailsWidget> {
                                                               .bodyText1
                                                               .override(
                                                                 fontFamily:
-                                                                    'DM Sans',
+                                                                    'Roboto Mono',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .tertiaryColor,
@@ -458,15 +458,16 @@ class _StoryDetailsWidgetState extends State<StoryDetailsWidget> {
                                                 pageViewUserStoriesRecord
                                                     .numComments!
                                                     .toString(),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'DM Sans',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyText1
+                                                    .override(
+                                                      fontFamily: 'Roboto Mono',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .tertiaryColor,
-                                                        ),
+                                                    ),
                                               ),
                                             ),
                                           ],

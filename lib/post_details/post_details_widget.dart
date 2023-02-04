@@ -371,7 +371,7 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText2
                                           .override(
-                                            fontFamily: 'DM Sans',
+                                            fontFamily: 'Roboto Mono',
                                             fontSize: 12,
                                           ),
                                     ),
@@ -715,7 +715,7 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .subtitle2
                                         .override(
-                                          fontFamily: 'DM Sans',
+                                          fontFamily: 'Roboto Mono',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
                                         ),

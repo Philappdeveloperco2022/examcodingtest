@@ -196,7 +196,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyText1
                               .override(
-                                fontFamily: 'DM Sans',
+                                fontFamily: 'Roboto Mono',
                                 color:
                                     FlutterFlowTheme.of(context).tertiaryColor,
                               ),

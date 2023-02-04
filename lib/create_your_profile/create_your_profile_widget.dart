@@ -62,7 +62,7 @@ class _CreateYourProfileWidgetState extends State<CreateYourProfileWidget> {
             child: Text(
               '2/2',
               style: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: 'DM Sans',
+                    fontFamily: 'Roboto Mono',
                     color: FlutterFlowTheme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                   ),
@@ -402,7 +402,7 @@ class _CreateYourProfileWidgetState extends State<CreateYourProfileWidget> {
                           color: FlutterFlowTheme.of(context).primaryColor,
                           textStyle:
                               FlutterFlowTheme.of(context).subtitle2.override(
-                                    fontFamily: 'DM Sans',
+                                    fontFamily: 'Roboto Mono',
                                     color: Colors.white,
                                   ),
                           elevation: 2,

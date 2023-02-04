@@ -136,7 +136,7 @@ class _CreateModalWidgetState extends State<CreateModalWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .title3
                                     .override(
-                                      fontFamily: 'Lexend',
+                                      fontFamily: 'Outfit',
                                       color: FlutterFlowTheme.of(context)
                                           .tertiaryColor,
                                     ),

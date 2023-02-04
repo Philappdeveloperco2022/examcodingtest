@@ -238,7 +238,7 @@ class _CommentsWidgetState extends State<CommentsWidget> {
                                                                   .bodyText1
                                                                   .override(
                                                                     fontFamily:
-                                                                        'DM Sans',
+                                                                        'Roboto Mono',
                                                                     fontSize:
                                                                         12,
                                                                   ),
@@ -258,7 +258,7 @@ class _CommentsWidgetState extends State<CommentsWidget> {
                                                                 .bodyText2
                                                                 .override(
                                                                   fontFamily:
-                                                                      'DM Sans',
+                                                                      'Roboto Mono',
                                                                   fontSize: 12,
                                                                 ),
                                                           ),
@@ -387,7 +387,7 @@ class _CommentsWidgetState extends State<CommentsWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .subtitle2
                                 .override(
-                                  fontFamily: 'DM Sans',
+                                  fontFamily: 'Roboto Mono',
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                 ),

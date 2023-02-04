@@ -214,7 +214,7 @@ class _ViewProfilePageOtherWidgetState
                                     textStyle: FlutterFlowTheme.of(context)
                                         .subtitle2
                                         .override(
-                                          fontFamily: 'DM Sans',
+                                          fontFamily: 'Roboto Mono',
                                           color: Colors.white,
                                         ),
                                     borderSide: BorderSide(

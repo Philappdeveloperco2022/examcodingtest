@@ -355,7 +355,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
-                                      fontFamily: 'DM Sans',
+                                      fontFamily: 'Roboto Mono',
                                       color: FlutterFlowTheme.of(context)
                                           .background,
                                       fontSize: 12,
@@ -437,7 +437,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
-                                      fontFamily: 'DM Sans',
+                                      fontFamily: 'Roboto Mono',
                                       color: FlutterFlowTheme.of(context)
                                           .background,
                                       fontSize: 12,
@@ -477,7 +477,7 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget> {
                         color: FlutterFlowTheme.of(context).primaryColor,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'DM Sans',
+                                  fontFamily: 'Roboto Mono',
                                   color: Colors.white,
                                 ),
                         elevation: 2,

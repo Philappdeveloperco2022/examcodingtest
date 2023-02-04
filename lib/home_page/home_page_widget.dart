@@ -274,7 +274,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily: 'DM Sans',
+                                                        fontFamily:
+                                                            'Roboto Mono',
                                                         fontSize: 12,
                                                       ),
                                             ),

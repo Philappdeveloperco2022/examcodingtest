@@ -66,9 +66,9 @@ abstract class FlutterFlowTheme {
 }
 
 class LightModeTheme extends FlutterFlowTheme {
-  late Color primaryColor = const Color(0xFF928163);
-  late Color secondaryColor = const Color(0xFF14181B);
-  late Color tertiaryColor = const Color(0xFFDCC294);
+  late Color primaryColor = const Color(0xFF14181B);
+  late Color secondaryColor = const Color(0xFFFFFFFF);
+  late Color tertiaryColor = const Color(0xFFDBE2E7);
   late Color alternate = const Color(0xFFDBE2E7);
   late Color primaryBackground = const Color(0xFFF1F4F8);
   late Color secondaryBackground = const Color(0xFFFFFFFF);
@@ -80,7 +80,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color grayIcon = Color(0xFF95A1AC);
   late Color gray200 = Color(0xFFDBE2E7);
   late Color dark600 = Color(0xFF262D34);
-  late Color primaryBtnText = Color(0xFFFFFFFF);
+  late Color primaryBtnText = Color(0xFF0F1316);
   late Color lineColor = Color(0xFFE0E3E7);
 }
 
@@ -106,51 +106,51 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get title1Family => 'Lexend';
+  String get title1Family => 'Outfit';
   TextStyle get title1 => GoogleFonts.getFont(
-        'Lexend',
+        'Outfit',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 34,
       );
-  String get title2Family => 'Lexend';
+  String get title2Family => 'Outfit';
   TextStyle get title2 => GoogleFonts.getFont(
-        'Lexend',
+        'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.normal,
         fontSize: 28,
       );
-  String get title3Family => 'Lexend';
+  String get title3Family => 'Outfit';
   TextStyle get title3 => GoogleFonts.getFont(
-        'Lexend',
+        'Outfit',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 20,
       );
-  String get subtitle1Family => 'Lexend';
+  String get subtitle1Family => 'Outfit';
   TextStyle get subtitle1 => GoogleFonts.getFont(
-        'Lexend',
+        'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.normal,
         fontSize: 18,
       );
-  String get subtitle2Family => 'DM Sans';
+  String get subtitle2Family => 'Roboto Mono';
   TextStyle get subtitle2 => GoogleFonts.getFont(
-        'DM Sans',
+        'Roboto Mono',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 16,
       );
-  String get bodyText1Family => 'DM Sans';
+  String get bodyText1Family => 'Roboto Mono';
   TextStyle get bodyText1 => GoogleFonts.getFont(
-        'DM Sans',
+        'Roboto Mono',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14,
       );
-  String get bodyText2Family => 'DM Sans';
+  String get bodyText2Family => 'Roboto Mono';
   TextStyle get bodyText2 => GoogleFonts.getFont(
-        'DM Sans',
+        'Roboto Mono',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14,
@@ -158,9 +158,9 @@ class ThemeTypography extends Typography {
 }
 
 class DarkModeTheme extends FlutterFlowTheme {
-  late Color primaryColor = const Color(0xFF928163);
-  late Color secondaryColor = const Color(0xFF14181B);
-  late Color tertiaryColor = const Color(0xFFDCC294);
+  late Color primaryColor = const Color(0xFF14181B);
+  late Color secondaryColor = const Color(0xFFFFFFFF);
+  late Color tertiaryColor = const Color(0xFF262D34);
   late Color alternate = const Color(0xFF262D34);
   late Color primaryBackground = const Color(0xFF1A1F24);
   late Color secondaryBackground = const Color(0xFF0F1316);

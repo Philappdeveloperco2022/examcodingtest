@@ -415,7 +415,7 @@ class _EditUserProfileWidgetState extends State<EditUserProfileWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
                                   .override(
-                                    fontFamily: 'DM Sans',
+                                    fontFamily: 'Roboto Mono',
                                     color: Colors.white,
                                   ),
                               elevation: 2,

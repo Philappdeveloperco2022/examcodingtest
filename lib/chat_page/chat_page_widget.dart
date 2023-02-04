@@ -81,7 +81,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
               Text(
                 'Group Chat',
                 style: FlutterFlowTheme.of(context).bodyText1.override(
-                      fontFamily: 'DM Sans',
+                      fontFamily: 'Roboto Mono',
                       color: Colors.black,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -151,14 +151,14 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                   ),
                   currentUserTextStyle:
                       FlutterFlowTheme.of(context).bodyText2.override(
-                            fontFamily: 'DM Sans',
+                            fontFamily: 'Roboto Mono',
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
                   otherUsersTextStyle: FlutterFlowTheme.of(context).bodyText1,
                   inputHintTextStyle: FlutterFlowTheme.of(context).bodyText2,
                   inputTextStyle:
                       FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'DM Sans',
+                            fontFamily: 'Roboto Mono',
                             color: FlutterFlowTheme.of(context).alternate,
                             fontWeight: FontWeight.bold,
                           ),
