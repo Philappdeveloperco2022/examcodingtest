@@ -7,8 +7,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CommentsWidget extends StatefulWidget {
-  const CommentsWidget({
+class CommentsfromAPIWidget extends StatefulWidget {
+  const CommentsfromAPIWidget({
     Key? key,
     this.story,
   }) : super(key: key);
@@ -16,10 +16,10 @@ class CommentsWidget extends StatefulWidget {
   final UserStoriesRecord? story;
 
   @override
-  _CommentsWidgetState createState() => _CommentsWidgetState();
+  _CommentsfromAPIWidgetState createState() => _CommentsfromAPIWidgetState();
 }
 
-class _CommentsWidgetState extends State<CommentsWidget> {
+class _CommentsfromAPIWidgetState extends State<CommentsfromAPIWidget> {
   TextEditingController? textController;
 
   @override
@@ -401,7 +401,7 @@ class _CommentsWidgetState extends State<CommentsWidget> {
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .subtitle2Family,
                                   color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                      FlutterFlowTheme.of(context).primaryText,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .subtitle2Family),

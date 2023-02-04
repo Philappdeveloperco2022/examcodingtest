@@ -58,8 +58,10 @@ class _DeletePostWidgetState extends State<DeletePostWidget> {
                 height: 60,
                 color: Color(0xFFFF5963),
                 textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                      fontFamily: 'Roboto Mono',
+                      fontFamily: FlutterFlowTheme.of(context).subtitle2Family,
                       color: Colors.white,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).subtitle2Family),
                     ),
                 borderSide: BorderSide(
                   color: Colors.transparent,

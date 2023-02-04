@@ -8,7 +8,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 const kThemeModeKey = '__theme_mode__';
 SharedPreferences? _prefs;
 
+enum DeviceSize {
+  mobile,
+  tablet,
+  desktop,
+}
+
 abstract class FlutterFlowTheme {
+  static DeviceSize deviceSize = DeviceSize.mobile;
+
   static Future initialize() async =>
       _prefs = await SharedPreferences.getInstance();
   static ThemeMode get themeMode {
@@ -25,6 +33,7 @@ abstract class FlutterFlowTheme {
       : _prefs?.setBool(kThemeModeKey, mode == ThemeMode.dark);
 
   static FlutterFlowTheme of(BuildContext context) {
+    deviceSize = getDeviceSize(context);
     return Theme.of(context).brightness == Brightness.dark
         ? DarkModeTheme()
         : LightModeTheme();
@@ -45,7 +54,6 @@ abstract class FlutterFlowTheme {
   late Color gray200;
   late Color dark600;
   late Color primaryBtnText;
-  late Color lineColor;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -62,26 +70,40 @@ abstract class FlutterFlowTheme {
   String get bodyText2Family => typography.bodyText2Family;
   TextStyle get bodyText2 => typography.bodyText2;
 
-  Typography get typography => ThemeTypography(this);
+  Typography get typography => {
+        DeviceSize.mobile: MobileTypography(this),
+        DeviceSize.tablet: TabletTypography(this),
+        DeviceSize.desktop: DesktopTypography(this),
+      }[deviceSize]!;
+}
+
+DeviceSize getDeviceSize(BuildContext context) {
+  final width = MediaQuery.of(context).size.width;
+  if (width < 479) {
+    return DeviceSize.mobile;
+  } else if (width < 991) {
+    return DeviceSize.tablet;
+  } else {
+    return DeviceSize.desktop;
+  }
 }
 
 class LightModeTheme extends FlutterFlowTheme {
-  late Color primaryColor = const Color(0xFF14181B);
-  late Color secondaryColor = const Color(0xFFFFFFFF);
-  late Color tertiaryColor = const Color(0xFFDBE2E7);
-  late Color alternate = const Color(0xFFDBE2E7);
-  late Color primaryBackground = const Color(0xFFF1F4F8);
+  late Color primaryColor = const Color(0xFFFFFFFF);
+  late Color secondaryColor = const Color(0xFF249689);
+  late Color tertiaryColor = const Color(0xFFFFA077);
+  late Color alternate = const Color(0xFFF3F7FD);
+  late Color primaryBackground = const Color(0xFFEFF7F5);
   late Color secondaryBackground = const Color(0xFFFFFFFF);
-  late Color primaryText = const Color(0xFF14181B);
+  late Color primaryText = const Color(0xFF111417);
   late Color secondaryText = const Color(0xFF57636C);
 
-  late Color primaryDark = Color(0xFF1A1F24);
+  late Color primaryDark = Color(0xFF020202);
   late Color background = Color(0xFFF1F4F8);
   late Color grayIcon = Color(0xFF95A1AC);
   late Color gray200 = Color(0xFFDBE2E7);
   late Color dark600 = Color(0xFF262D34);
   late Color primaryBtnText = Color(0xFF0F1316);
-  late Color lineColor = Color(0xFFE0E3E7);
 }
 
 abstract class Typography {
@@ -101,8 +123,64 @@ abstract class Typography {
   TextStyle get bodyText2;
 }
 
-class ThemeTypography extends Typography {
-  ThemeTypography(this.theme);
+class MobileTypography extends Typography {
+  MobileTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get title1Family => 'Roboto';
+  TextStyle get title1 => GoogleFonts.getFont(
+        'Roboto',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 34,
+      );
+  String get title2Family => 'Roboto';
+  TextStyle get title2 => GoogleFonts.getFont(
+        'Roboto',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w300,
+        fontSize: 28,
+      );
+  String get title3Family => 'Roboto';
+  TextStyle get title3 => GoogleFonts.getFont(
+        'Roboto',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 20,
+      );
+  String get subtitle1Family => 'Roboto';
+  TextStyle get subtitle1 => GoogleFonts.getFont(
+        'Roboto',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 18,
+      );
+  String get subtitle2Family => 'Roboto';
+  TextStyle get subtitle2 => GoogleFonts.getFont(
+        'Roboto',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16,
+      );
+  String get bodyText1Family => 'Roboto';
+  TextStyle get bodyText1 => GoogleFonts.getFont(
+        'Roboto',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      );
+  String get bodyText2Family => 'Roboto';
+  TextStyle get bodyText2 => GoogleFonts.getFont(
+        'Roboto',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      );
+}
+
+class TabletTypography extends Typography {
+  TabletTypography(this.theme);
 
   final FlutterFlowTheme theme;
 
@@ -117,7 +195,7 @@ class ThemeTypography extends Typography {
   TextStyle get title2 => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w300,
         fontSize: 28,
       );
   String get title3Family => 'Outfit';
@@ -131,26 +209,82 @@ class ThemeTypography extends Typography {
   TextStyle get subtitle1 => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w500,
         fontSize: 18,
       );
-  String get subtitle2Family => 'Roboto Mono';
+  String get subtitle2Family => 'Inter';
   TextStyle get subtitle2 => GoogleFonts.getFont(
-        'Roboto Mono',
+        'Inter',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.normal,
         fontSize: 16,
       );
-  String get bodyText1Family => 'Roboto Mono';
+  String get bodyText1Family => 'Inter';
   TextStyle get bodyText1 => GoogleFonts.getFont(
-        'Roboto Mono',
+        'Inter',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14,
       );
-  String get bodyText2Family => 'Roboto Mono';
+  String get bodyText2Family => 'Inter';
   TextStyle get bodyText2 => GoogleFonts.getFont(
-        'Roboto Mono',
+        'Inter',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      );
+}
+
+class DesktopTypography extends Typography {
+  DesktopTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get title1Family => 'Outfit';
+  TextStyle get title1 => GoogleFonts.getFont(
+        'Outfit',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 34,
+      );
+  String get title2Family => 'Outfit';
+  TextStyle get title2 => GoogleFonts.getFont(
+        'Outfit',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w300,
+        fontSize: 28,
+      );
+  String get title3Family => 'Outfit';
+  TextStyle get title3 => GoogleFonts.getFont(
+        'Outfit',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 20,
+      );
+  String get subtitle1Family => 'Outfit';
+  TextStyle get subtitle1 => GoogleFonts.getFont(
+        'Outfit',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 18,
+      );
+  String get subtitle2Family => 'Inter';
+  TextStyle get subtitle2 => GoogleFonts.getFont(
+        'Inter',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16,
+      );
+  String get bodyText1Family => 'Inter';
+  TextStyle get bodyText1 => GoogleFonts.getFont(
+        'Inter',
+        color: theme.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14,
+      );
+  String get bodyText2Family => 'Inter';
+  TextStyle get bodyText2 => GoogleFonts.getFont(
+        'Inter',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14,
@@ -158,22 +292,21 @@ class ThemeTypography extends Typography {
 }
 
 class DarkModeTheme extends FlutterFlowTheme {
-  late Color primaryColor = const Color(0xFF14181B);
-  late Color secondaryColor = const Color(0xFFFFFFFF);
-  late Color tertiaryColor = const Color(0xFF262D34);
+  late Color primaryColor = const Color(0xFFFFFFFF);
+  late Color secondaryColor = const Color(0xFF249689);
+  late Color tertiaryColor = const Color(0xFFFFA077);
   late Color alternate = const Color(0xFF262D34);
   late Color primaryBackground = const Color(0xFF1A1F24);
-  late Color secondaryBackground = const Color(0xFF0F1316);
+  late Color secondaryBackground = const Color(0xFF111417);
   late Color primaryText = const Color(0xFFFFFFFF);
   late Color secondaryText = const Color(0xFF95A1AC);
 
-  late Color primaryDark = Color(0xFF1A1F24);
-  late Color background = Color(0xFFF1F4F8);
+  late Color primaryDark = Color(0xFFFFFFFF);
+  late Color background = Color(0xFF020202);
   late Color grayIcon = Color(0xFF95A1AC);
   late Color gray200 = Color(0xFFDBE2E7);
   late Color dark600 = Color(0xFF262D34);
   late Color primaryBtnText = Color(0xFFFFFFFF);
-  late Color lineColor = Color(0xFF22282F);
 }
 
 extension TextStyleHelper on TextStyle {

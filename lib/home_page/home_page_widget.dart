@@ -91,24 +91,25 @@ class _HomePageWidgetState extends State<HomePageWidget>
         ),
       ),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         title: Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            if (Theme.of(context).brightness == Brightness.light)
-              Image.asset(
-                'assets/images/logoSniff_dark@3x.png',
-                width: 120,
-                height: 50,
-                fit: BoxFit.fitWidth,
-              ),
             if (Theme.of(context).brightness == Brightness.dark)
-              Image.asset(
-                'assets/images/logoSniff@2x.png',
-                width: 120,
-                height: 50,
-                fit: BoxFit.fitWidth,
+              AuthUserStreamWidget(
+                builder: (context) => ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: CachedNetworkImage(
+                    imageUrl: valueOrDefault<String>(
+                      currentUserPhoto,
+                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/examcodexxxx-ekkm7g/assets/ecgarccbamws/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png',
+                    ),
+                    width: 40,
+                    height: 40,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
           ],
         ),
@@ -121,7 +122,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
               buttonSize: 46,
               icon: Icon(
                 Icons.notifications_outlined,
-                color: FlutterFlowTheme.of(context).grayIcon,
+                color: FlutterFlowTheme.of(context).primaryText,
                 size: 24,
               ),
               onPressed: () {
@@ -164,7 +165,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 8),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 8),
                       child: StreamBuilder<List<UserStoriesRecord>>(
                         stream: queryUserStoriesRecord(
                           queryBuilder: (userStoriesRecord) => userStoriesRecord
@@ -275,8 +276,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       .bodyText1
                                                       .override(
                                                         fontFamily:
-                                                            'Roboto Mono',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText1Family,
                                                         fontSize: 12,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1Family),
                                                       ),
                                             ),
                                           ),
@@ -386,7 +395,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 8, 2, 4),
+                                          0, 15, 2, 4),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -647,6 +656,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyText2Family),
                                                                 ),
                                                       ),
                                                     ),
@@ -683,6 +697,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyText2Family),
                                                               ),
                                                     ),
                                                   ),
@@ -709,11 +728,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           context)
                                                       .bodyText1,
                                                 ),
-                                              ),
-                                              Icon(
-                                                Icons.ios_share,
-                                                color: Color(0xFF95A1AC),
-                                                size: 24,
                                               ),
                                             ],
                                           ),

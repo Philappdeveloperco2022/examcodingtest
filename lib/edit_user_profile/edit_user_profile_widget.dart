@@ -415,8 +415,13 @@ class _EditUserProfileWidgetState extends State<EditUserProfileWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
                                   .override(
-                                    fontFamily: 'Roboto Mono',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .subtitle2Family,
                                     color: Colors.white,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .subtitle2Family),
                                   ),
                               elevation: 2,
                               borderSide: BorderSide(

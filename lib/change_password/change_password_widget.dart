@@ -13,19 +13,19 @@ class ChangePasswordWidget extends StatefulWidget {
 }
 
 class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
-  TextEditingController? phoneNumberController;
+  TextEditingController? emaiAddressController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    phoneNumberController = TextEditingController();
+    emaiAddressController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    phoneNumberController?.dispose();
+    emaiAddressController?.dispose();
     super.dispose();
   }
 
@@ -59,9 +59,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(16, 20, 16, 0),
             child: TextFormField(
-              controller: phoneNumberController,
+              controller: emaiAddressController,
               obscureText: false,
               decoration: InputDecoration(
                 labelText: 'Enter your email',
@@ -69,14 +69,14 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                 hintStyle: FlutterFlowTheme.of(context).bodyText2,
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
+                    color: FlutterFlowTheme.of(context).secondaryColor,
                     width: 2,
                   ),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
+                    color: FlutterFlowTheme.of(context).secondaryColor,
                     width: 2,
                   ),
                   borderRadius: BorderRadius.circular(8),
@@ -120,7 +120,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
             child: FFButtonWidget(
               onPressed: () async {
-                if (phoneNumberController!.text.isEmpty) {
+                if (emaiAddressController!.text.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
@@ -131,7 +131,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                   return;
                 }
                 await resetPassword(
-                  email: phoneNumberController!.text,
+                  email: emaiAddressController!.text,
                   context: context,
                 );
               },
@@ -139,19 +139,21 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
               options: FFButtonOptions(
                 width: 200,
                 height: 50,
-                color: FlutterFlowTheme.of(context).primaryColor,
+                color: FlutterFlowTheme.of(context).primaryBackground,
                 textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                       fontFamily: 'Lexend Deca',
-                      color: FlutterFlowTheme.of(context).tertiaryColor,
+                      color: FlutterFlowTheme.of(context).primaryText,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).subtitle2Family),
                     ),
                 elevation: 3,
                 borderSide: BorderSide(
                   color: Colors.transparent,
                   width: 1,
                 ),
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(8),
               ),
             ),
           ),

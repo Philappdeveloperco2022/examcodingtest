@@ -126,6 +126,12 @@ class _ViewProfilePageOtherWidgetState
                                               color: Color(0xFFEE8B60),
                                               fontSize: 14,
                                               fontWeight: FontWeight.normal,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1Family),
                                             ),
                                       ),
                                     ),
@@ -214,8 +220,14 @@ class _ViewProfilePageOtherWidgetState
                                     textStyle: FlutterFlowTheme.of(context)
                                         .subtitle2
                                         .override(
-                                          fontFamily: 'Roboto Mono',
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .subtitle2Family,
                                           color: Colors.white,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle2Family),
                                         ),
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
@@ -632,6 +644,8 @@ class _ViewProfilePageOtherWidgetState
                                                                                 14,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -776,6 +790,7 @@ class _ViewProfilePageOtherWidgetState
                                                                                 color: Color(0xFF8B97A2),
                                                                                 fontSize: 14,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText2Family),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -813,6 +828,7 @@ class _ViewProfilePageOtherWidgetState
                                                                               color: Color(0xFF8B97A2),
                                                                               fontSize: 14,
                                                                               fontWeight: FontWeight.normal,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText2Family),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -895,6 +911,8 @@ class _ViewProfilePageOtherWidgetState
                                                                             14,
                                                                         fontWeight:
                                                                             FontWeight.normal,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                       ),
                                                                 ),
                                                               ),

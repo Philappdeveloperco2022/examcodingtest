@@ -219,6 +219,10 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget> {
                                             color: Color(0xFF8B97A2),
                                             fontSize: 14,
                                             fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText2Family),
                                           ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
@@ -262,6 +266,10 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget> {
                                               .tertiaryColor,
                                           fontSize: 14,
                                           fontWeight: FontWeight.normal,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1Family),
                                         ),
                                     textAlign: TextAlign.start,
                                     maxLines: 4,
@@ -355,10 +363,15 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
-                                      fontFamily: 'Roboto Mono',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyText1Family,
                                       color: FlutterFlowTheme.of(context)
                                           .background,
                                       fontSize: 12,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText1Family),
                                     ),
                               ),
                             ],
@@ -437,10 +450,15 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
-                                      fontFamily: 'Roboto Mono',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyText1Family,
                                       color: FlutterFlowTheme.of(context)
                                           .background,
                                       fontSize: 12,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText1Family),
                                     ),
                               ),
                             ],
@@ -475,11 +493,15 @@ class _CreateStoryWidgetState extends State<CreateStoryWidget> {
                         width: 140,
                         height: 50,
                         color: FlutterFlowTheme.of(context).primaryColor,
-                        textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Roboto Mono',
-                                  color: Colors.white,
-                                ),
+                        textStyle: FlutterFlowTheme.of(context)
+                            .subtitle2
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).subtitle2Family,
+                              color: Colors.white,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).subtitle2Family),
+                            ),
                         elevation: 2,
                         borderSide: BorderSide(
                           color: Colors.transparent,

@@ -3,9 +3,9 @@ export 'login/login_widget.dart' show LoginWidget;
 export 'create_account/create_account_widget.dart' show CreateAccountWidget;
 export 'create_dog_profile/create_dog_profile_widget.dart'
     show CreateDogProfileWidget;
+export 'forgot_password/forgot_password_widget.dart' show ForgotPasswordWidget;
 export 'create_your_profile/create_your_profile_widget.dart'
     show CreateYourProfileWidget;
-export 'forgot_password/forgot_password_widget.dart' show ForgotPasswordWidget;
 export 'home_page/home_page_widget.dart' show HomePageWidget;
 export 'profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export 'create_story/create_story_widget.dart' show CreateStoryWidget;
@@ -27,3 +27,4 @@ export 'all_chats_page/all_chats_page_widget.dart' show AllChatsPageWidget;
 export 'add_chat_users/add_chat_users_widget.dart' show AddChatUsersWidget;
 export 'create_group_chat/create_group_chat_widget.dart'
     show CreateGroupChatWidget;
+export 'main_page/main_page_widget.dart' show MainPageWidget;

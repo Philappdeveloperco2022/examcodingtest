@@ -1,43 +1,38 @@
 import '../backend/api_requests/api_calls.dart';
-import '../components/modal2_widget.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../login/login_widget.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Modal1Widget extends StatefulWidget {
-  const Modal1Widget({Key? key}) : super(key: key);
+class Modal2Widget extends StatefulWidget {
+  const Modal2Widget({Key? key}) : super(key: key);
 
   @override
-  _Modal1WidgetState createState() => _Modal1WidgetState();
+  _Modal2WidgetState createState() => _Modal2WidgetState();
 }
 
-class _Modal1WidgetState extends State<Modal1Widget> {
-  ApiCallResponse? apiResult2e6;
-  TextEditingController? emailController;
-  TextEditingController? passwordController;
-  late bool passwordVisibility;
-  TextEditingController? password2Controller;
-  late bool password2Visibility;
+class _Modal2WidgetState extends State<Modal2Widget> {
+  ApiCallResponse? apiResult9d1;
+  String? dropDownValue;
+  TextEditingController? ageController;
+  TextEditingController? fullNameController;
 
   @override
   void initState() {
     super.initState();
-    emailController = TextEditingController();
-    passwordController = TextEditingController();
-    passwordVisibility = false;
-    password2Controller = TextEditingController();
-    password2Visibility = false;
+    ageController = TextEditingController();
+    fullNameController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    emailController?.dispose();
-    passwordController?.dispose();
-    password2Controller?.dispose();
+    ageController?.dispose();
+    fullNameController?.dispose();
     super.dispose();
   }
 
@@ -55,11 +50,16 @@ class _Modal1WidgetState extends State<Modal1Widget> {
           width: double.infinity,
           height: 541.6,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).primaryBackground,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: FlutterFlowTheme.of(context).alternate,
+            gradient: LinearGradient(
+              colors: [
+                Color(0x001A1F24),
+                FlutterFlowTheme.of(context).secondaryBackground
+              ],
+              stops: [0, 0.3],
+              begin: AlignmentDirectional(0, -1),
+              end: AlignmentDirectional(0, 1),
             ),
+            borderRadius: BorderRadius.circular(12),
           ),
           alignment: AlignmentDirectional(0, 0.8),
           child: Column(
@@ -106,7 +106,7 @@ class _Modal1WidgetState extends State<Modal1Widget> {
                             await Navigator.push(
                               context,
                               PageTransition(
-                                type: PageTransitionType.fade,
+                                type: PageTransitionType.topToBottom,
                                 duration: Duration(milliseconds: 200),
                                 reverseDuration: Duration(milliseconds: 200),
                                 child: LoginWidget(),
@@ -119,15 +119,16 @@ class _Modal1WidgetState extends State<Modal1Widget> {
                             height: 28,
                             color: Color(0x00FFFFFF),
                             textStyle: FlutterFlowTheme.of(context)
-                                .title3
+                                .subtitle2
                                 .override(
-                                  fontFamily:
-                                      FlutterFlowTheme.of(context).title3Family,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .subtitle2Family,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontSize: 14,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
-                                          .title3Family),
+                                          .subtitle2Family),
                                 ),
                             elevation: 0,
                             borderSide: BorderSide(
@@ -160,10 +161,10 @@ class _Modal1WidgetState extends State<Modal1Widget> {
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                     child: TextFormField(
-                      controller: emailController,
+                      controller: fullNameController,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Your email...',
+                        labelText: 'Full Name',
                         labelStyle: FlutterFlowTheme.of(context).bodyText2,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -217,54 +218,52 @@ class _Modal1WidgetState extends State<Modal1Widget> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                     child: TextFormField(
-                      controller: passwordController,
-                      obscureText: !passwordVisibility,
+                      controller: ageController,
+                      autofocus: true,
+                      obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Password',
-                        labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                        enabledBorder: OutlineInputBorder(
+                        labelText: 'Age',
+                        hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                        enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 2,
+                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(4.0),
+                            topRight: Radius.circular(4.0),
+                          ),
                         ),
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 2,
+                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(4.0),
+                            topRight: Radius.circular(4.0),
+                          ),
                         ),
-                        errorBorder: OutlineInputBorder(
+                        errorBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 2,
+                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(4.0),
+                            topRight: Radius.circular(4.0),
+                          ),
                         ),
-                        focusedErrorBorder: OutlineInputBorder(
+                        focusedErrorBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 2,
+                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        contentPadding:
-                            EdgeInsetsDirectional.fromSTEB(16, 20, 24, 20),
-                        suffixIcon: InkWell(
-                          onTap: () => setState(
-                            () => passwordVisibility = !passwordVisibility,
-                          ),
-                          focusNode: FocusNode(skipTraversal: true),
-                          child: Icon(
-                            passwordVisibility
-                                ? Icons.visibility_outlined
-                                : Icons.visibility_off_outlined,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 22,
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(4.0),
+                            topRight: Radius.circular(4.0),
                           ),
                         ),
                       ),
@@ -288,60 +287,27 @@ class _Modal1WidgetState extends State<Modal1Widget> {
                     ],
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-                    child: TextFormField(
-                      controller: password2Controller,
-                      obscureText: !password2Visibility,
-                      decoration: InputDecoration(
-                        labelText: 'Confirm Password',
-                        labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
+                  child: FlutterFlowDropDown<String>(
+                    initialOption: dropDownValue ??= 'User Only',
+                    options: ['User Only', 'Admin'],
+                    onChanged: (val) => setState(() => dropDownValue = val),
+                    width: 180,
+                    height: 50,
+                    textStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyText1Family,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyText1Family),
                         ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        contentPadding:
-                            EdgeInsetsDirectional.fromSTEB(16, 20, 24, 20),
-                        suffixIcon: InkWell(
-                          onTap: () => setState(
-                            () => password2Visibility = !password2Visibility,
-                          ),
-                          focusNode: FocusNode(skipTraversal: true),
-                          child: Icon(
-                            password2Visibility
-                                ? Icons.visibility_outlined
-                                : Icons.visibility_off_outlined,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 22,
-                          ),
-                        ),
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
-                    ),
+                    hintText: 'Please select role...',
+                    fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                    elevation: 2,
+                    borderColor: Colors.transparent,
+                    borderWidth: 0,
+                    borderRadius: 20,
+                    margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                    hidesUnderline: true,
                   ),
                 ),
               ),
@@ -377,73 +343,62 @@ class _Modal1WidgetState extends State<Modal1Widget> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    if (passwordController!.text == password2Controller!.text)
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            apiResult2e6 = await RegistrationCall.call(
-                              email: emailController!.text,
-                              password: passwordController!.text,
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          apiResult9d1 = await UpdateUsersCall.call();
+                          if ((apiResult9d1?.succeeded ?? true)) {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    NavBarPage(initialPage: 'homePage'),
+                              ),
                             );
-                            if ((apiResult2e6?.succeeded ?? true)) {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
-                                    child: Modal2Widget(),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    (apiResult2e6?.statusCode ?? 200)
-                                        .toString(),
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  (apiResult9d1?.statusCode ?? 200).toString(),
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                   ),
-                                  duration: Duration(milliseconds: 4000),
-                                  backgroundColor: Color(0x00000000),
                                 ),
-                              );
-                            }
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor: Color(0x00000000),
+                              ),
+                            );
+                          }
 
-                            setState(() {});
-                          },
-                          text: 'Next',
-                          options: FFButtonOptions(
-                            width: 149.7,
-                            height: 50,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .subtitle2
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .subtitle2Family,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .subtitle2Family),
-                                ),
-                            elevation: 2,
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(8),
+                          setState(() {});
+                        },
+                        text: 'Register',
+                        options: FFButtonOptions(
+                          width: 149.7,
+                          height: 50,
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .subtitle2
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .subtitle2Family,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .subtitle2Family),
+                              ),
+                          elevation: 2,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1,
                           ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
+                    ),
                   ],
                 ),
               ),

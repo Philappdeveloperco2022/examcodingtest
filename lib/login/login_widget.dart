@@ -277,11 +277,15 @@ class _LoginWidgetState extends State<LoginWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .subtitle2
                                 .override(
-                                  fontFamily: 'Roboto Mono',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .subtitle2Family,
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .subtitle2Family),
                                 ),
                             elevation: 0,
                             borderSide: BorderSide(
@@ -299,9 +303,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                             if ((apiResultAuthhentication?.succeeded ?? true)) {
                               await Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      NavBarPage(initialPage: 'profilePage'),
+                                PageTransition(
+                                  type: PageTransitionType.bottomToTop,
+                                  duration: Duration(milliseconds: 300),
+                                  reverseDuration: Duration(milliseconds: 300),
+                                  child: NavBarPage(initialPage: 'homePage'),
                                 ),
                               );
                             } else {
@@ -315,20 +321,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     ),
                                   ),
                                   duration: Duration(milliseconds: 4000),
-                                  backgroundColor: Color(0xFF8C3101),
-                                  action: SnackBarAction(
-                                    label: 'Do you want to reset password',
-                                    textColor: Color(0x0057636C),
-                                    onPressed: () async {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              ChangePasswordWidget(),
-                                        ),
-                                      );
-                                    },
-                                  ),
+                                  backgroundColor: Color(0x00000000),
                                 ),
                               );
                             }
@@ -340,11 +333,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                             width: 150,
                             height: 50,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle1.override(
-                                      fontFamily: 'Outfit',
-                                      color: Colors.white,
-                                    ),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .subtitle1
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .subtitle1Family,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .subtitle1Family),
+                                ),
                             elevation: 3,
                             borderSide: BorderSide(
                               color: Colors.transparent,
@@ -368,13 +367,19 @@ class _LoginWidgetState extends State<LoginWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text(
-                          valueOrDefault<String>(
-                            (apiResultAuthhentication?.succeeded ?? true)
-                                .toString(),
-                            'API Initiated Success',
+                        InkWell(
+                          onTap: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChangePasswordWidget(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Forgot password?',
+                            style: FlutterFlowTheme.of(context).bodyText1,
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
                         ),
                       ],
                     ),

@@ -5,14 +5,14 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CreateModalWidget extends StatefulWidget {
-  const CreateModalWidget({Key? key}) : super(key: key);
+class CreateModalAPIWidget extends StatefulWidget {
+  const CreateModalAPIWidget({Key? key}) : super(key: key);
 
   @override
-  _CreateModalWidgetState createState() => _CreateModalWidgetState();
+  _CreateModalAPIWidgetState createState() => _CreateModalAPIWidgetState();
 }
 
-class _CreateModalWidgetState extends State<CreateModalWidget> {
+class _CreateModalAPIWidgetState extends State<CreateModalAPIWidget> {
   @override
   void initState() {
     super.initState();

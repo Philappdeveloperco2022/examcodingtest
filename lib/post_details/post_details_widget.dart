@@ -371,8 +371,14 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText2
                                           .override(
-                                            fontFamily: 'Roboto Mono',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText2Family,
                                             fontSize: 12,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText2Family),
                                           ),
                                     ),
                                   ],
@@ -715,9 +721,15 @@ class _PostDetailsWidgetState extends State<PostDetailsWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .subtitle2
                                         .override(
-                                          fontFamily: 'Roboto Mono',
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .subtitle2Family,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle2Family),
                                         ),
                                     elevation: 0,
                                     borderSide: BorderSide(
