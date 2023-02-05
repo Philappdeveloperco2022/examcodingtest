@@ -10,7 +10,7 @@ import '../flutter_flow/flutter_flow_video_player.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/place.dart';
 import '../flutter_flow/upload_media.dart';
-import '../main.dart';
+import '../home_page/home_page_widget.dart';
 import 'dart:io';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -345,7 +345,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                       type: PageTransitionType.leftToRight,
                       duration: Duration(milliseconds: 250),
                       reverseDuration: Duration(milliseconds: 250),
-                      child: NavBarPage(initialPage: 'homePage'),
+                      child: HomePageWidget(),
                     ),
                   );
                 },

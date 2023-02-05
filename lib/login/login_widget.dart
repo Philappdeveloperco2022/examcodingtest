@@ -4,7 +4,7 @@ import '../components/modal1_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../main.dart';
+import '../home_page/home_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -307,7 +307,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   type: PageTransitionType.bottomToTop,
                                   duration: Duration(milliseconds: 300),
                                   reverseDuration: Duration(milliseconds: 300),
-                                  child: NavBarPage(initialPage: 'homePage'),
+                                  child: HomePageWidget(),
                                 ),
                               );
                             } else {

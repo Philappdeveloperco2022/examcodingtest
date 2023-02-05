@@ -135,9 +135,12 @@ class SocialPostCall {
   static Future<ApiCallResponse> call() {
     return ApiManager.instance.makeApiCall(
       callName: 'SocialPost',
-      apiUrl: 'https://gorest.co.in/public/v2/posts',
+      apiUrl: 'https://gorest.co.in/public/v2/users/651/posts',
       callType: ApiCallType.GET,
-      headers: {},
+      headers: {
+        'Bearer':
+            'c1f32d7ac4d0de04e7c4ba1b0a752a4512a866ae46e160ea3fdf0c0b39b8ca89',
+      },
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,

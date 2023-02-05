@@ -452,7 +452,8 @@ class _CreateDogProfileWidgetState extends State<CreateDogProfileWidget> {
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .subtitle2Family,
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
                                             FlutterFlowTheme.of(context)

@@ -2,7 +2,7 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../main.dart';
+import '../home_page/home_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -48,7 +48,7 @@ class _DeletePostWidgetState extends State<DeletePostWidget> {
                     type: PageTransitionType.leftToRight,
                     duration: Duration(milliseconds: 220),
                     reverseDuration: Duration(milliseconds: 220),
-                    child: NavBarPage(initialPage: 'homePage'),
+                    child: HomePageWidget(),
                   ),
                 );
               },
