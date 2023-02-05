@@ -382,7 +382,7 @@ class _Modal1WidgetState extends State<Modal1Widget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            apiResult2e6 = await RegistrationCall.call(
+                            apiResult2e6 = await RegistrationupdateCall.call(
                               email: emailController!.text,
                               password: passwordController!.text,
                             );

@@ -1,9 +1,9 @@
 import '../backend/api_requests/api_calls.dart';
-import '../edit_user_profile/edit_user_profile_widget.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../home_page/home_page_widget.dart';
 import '../login/login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +16,7 @@ class Modal2Widget extends StatefulWidget {
 }
 
 class _Modal2WidgetState extends State<Modal2Widget> {
-  ApiCallResponse? apiResult9d12;
+  ApiCallResponse? apiResulty2gqq;
   String? dropDownValue;
   TextEditingController? ageController;
   TextEditingController? fullNameController;
@@ -339,24 +339,24 @@ class _Modal2WidgetState extends State<Modal2Widget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          apiResult9d12 = await UpdateUsersCall.call(
-                            id: (apiResult9d12?.jsonBody ?? '').toString(),
+                          apiResulty2gqq = await RegistrationupdateCall.call(
                             name: fullNameController!.text,
                             age: int.tryParse(ageController!.text),
                             userRole: dropDownValue,
                           );
-                          if ((apiResult9d12?.succeeded ?? true)) {
+                          if ((apiResulty2gqq?.succeeded ?? true)) {
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => EditUserProfileWidget(),
+                                builder: (context) => HomePageWidget(),
                               ),
                             );
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
-                                  (apiResult9d12?.statusCode ?? 200).toString(),
+                                  (apiResulty2gqq?.statusCode ?? 200)
+                                      .toString(),
                                   style: TextStyle(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
